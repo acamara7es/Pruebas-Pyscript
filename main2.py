@@ -89,7 +89,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from pyodide.http import pyfetch
 async def get_font():
     # 1. Descargar la fuente desde tu servidor o CDN
-    response = await pyfetch("https://github.com/acamara7es/Pruebas-Pyscript/raw/refs/heads/main/cour.ttf")
+    response = await pyfetch("https://raw.githubusercontent.com/acamara7es/Pruebas-Pyscript/refs/heads/main/cour.ttf")
     font_bytes = await response.bytes()
 
     # 2. Guardar el archivo en el sistema de archivos virtual
