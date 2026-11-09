@@ -37,9 +37,9 @@ def download_pdf(pdf_bytes):
     # Limpiar memoria liberando el objeto URL creado
     window.URL.revokeObjectURL(url)
 
-def temp():
+def temp(file):
     data = []
-    with open('Office_Address_List.txt', 'r', encoding='utf-8') as f:
+    with open(file, 'r', encoding='utf-8') as f:
         reader = csv.reader(f, delimiter=';')
         for fila in reader:
             if len(fila) >= 4:
@@ -53,7 +53,7 @@ def generate_labels(e):
     buffer = BytesIO()
     file = import_file(e.target.files.item(0))
     #labels_data = process_file(file)
-    labels_data = temp()
+    labels_data = temp(file)
     generate_pdf(labels_data, buffer)
     download_pdf(buffer.getvalue())
     prueba()
