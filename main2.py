@@ -4,7 +4,6 @@ from js import document, window, Uint8Array, Blob
 from io import BytesIO
 from pyscript import when
 from reportlab.pdfgen import canvas
-#from reportlab_tools import generate_pdf
 
 #@TODO proceso del archivo con pandas, quedarse con las columnas que necesitamos
 # y generar un array con los datos de las etiquetas
@@ -52,7 +51,7 @@ def temp():
 @when("change","#file-upload")
 def generate_labels(e):
     buffer = BytesIO()
-    #file = import_file(e.target.files.item(0))
+    file = import_file(e.target.files.item(0))
     #labels_data = process_file(file)
     labels_data = temp()
     generate_pdf(labels_data, buffer)
@@ -84,29 +83,12 @@ from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
-#ruta_courier = "C:\\Windows\\Fonts\\cour.ttf"
-#ruta_courier_bold = "C:\\Windows\\Fonts\\courbd.ttf"
-from pyodide.http import pyfetch
-async def get_font():
-    # 1. Descargar la fuente desde tu servidor o CDN
-    response = await pyfetch("https://raw.githubusercontent.com/acamara7es/Pruebas-Pyscript/refs/heads/main/cour.ttf")
-    font_bytes = await response.bytes()
-
-    # 2. Guardar el archivo en el sistema de archivos virtual
-    with open("cour.ttf", "wb") as f:
-        f.write(font_bytes)
-
-    pdfmetrics.registerFont(TTFont('Courier New', "cour.ttf"))
-    pdfmetrics.registerFont(TTFont('Courier New-Bold', "courb.ttf"))
+pdfmetrics.registerFont(TTFont('Courier New', "cour.ttf"))
+pdfmetrics.registerFont(TTFont('Courier New-Bold', "courbd.ttf"))
 
 # Configuración del documento A4 (21.0 cm x 29.7 cm)
 # 2 columnas de 10.5 cm ocupan todo el ancho. 11 filas de 2.6 cm = 28.6 cm.
 # Margen superior e inferior restante: (29.7 - 28.6) / 2 = 0.55 cm.
-
-async def main():
-    print("HOAL")
-    await get_font()
-    print("HOLA")
 
 row_heights = [25 * mm, 26 * mm, 25 * mm, 25 * mm, 26 * mm, 25 * mm, 26 * mm, 25 * mm, 25 * mm, 26 * mm, 25 * mm]
 
@@ -206,4 +188,3 @@ def generate_pdf(labels_data,buffer):
     print("¡PDF generado con éxito!")
 
 print("BLA")
-main()
