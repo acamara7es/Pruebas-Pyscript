@@ -97,7 +97,7 @@ async def get_font():
         f.write(font_bytes)
 
     pdfmetrics.registerFont(TTFont('Courier New', "cour.ttf"))
-    #pdfmetrics.registerFont(TTFont('Courier New-Bold', "courb.ttf"))
+    pdfmetrics.registerFont(TTFont('Courier New-Bold', "courb.ttf"))
 
 # Configuración del documento A4 (21.0 cm x 29.7 cm)
 # 2 columnas de 10.5 cm ocupan todo el ancho. 11 filas de 2.6 cm = 28.6 cm.
