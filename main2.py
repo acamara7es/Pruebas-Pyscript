@@ -14,8 +14,9 @@ def process_file(data):
 async def import_file(file):
     array_buf = await file.arrayBuffer() # Get arrayBuffer from file
     file_bytes = array_buf.to_bytes() # convert to raw bytes array
-    csv_file = BytesIO(file_bytes) # Wrap in Python BytesIO file-like object
-    return csv_file
+    #csv_file = BytesIO(file_bytes) # Wrap in Python BytesIO file-like object
+    #return csv_file
+	return file_bytes
 
 def download_pdf(pdf_bytes):
     # Convertir los bytes a un formato que JavaScript entienda (Uint8Array)
@@ -39,12 +40,12 @@ def download_pdf(pdf_bytes):
 
 def temp(file):
     data = []
-    with open(file, 'r', encoding='utf-8') as f:
-        reader = csv.reader(f, delimiter=';')
-        for fila in reader:
-            if len(fila) >= 4:
-                label = [fila[0], fila[1], fila[2], fila[3]]
-                data.append(label)
+    #with open(file, 'r', encoding='utf-8') as f:
+	reader = csv.reader(file, delimiter=';')
+    for fila in reader:
+    	if len(fila) >= 4:
+            label = [fila[0], fila[1], fila[2], fila[3]]
+            data.append(label)
     return data
 
 
