@@ -16,7 +16,7 @@ async def import_file(file):
     file_bytes = array_buf.to_bytes() # convert to raw bytes array
     #csv_file = BytesIO(file_bytes) # Wrap in Python BytesIO file-like object
     #return csv_file
-	return file_bytes
+    return file_bytes
 
 def download_pdf(pdf_bytes):
     # Convertir los bytes a un formato que JavaScript entienda (Uint8Array)
