@@ -41,9 +41,9 @@ def download_pdf(pdf_bytes):
 def temp(file):
     data = []
     #with open(file, 'r', encoding='utf-8') as f:
-	reader = csv.reader(file, delimiter=';')
+    reader = csv.reader(file, delimiter=';')
     for fila in reader:
-    	if len(fila) >= 4:
+        if len(fila) >= 4:
             label = [fila[0], fila[1], fila[2], fila[3]]
             data.append(label)
     return data
