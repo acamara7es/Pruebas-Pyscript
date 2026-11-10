@@ -124,14 +124,14 @@ estilo_descripcion = ParagraphStyle(
 )
 
 label_style = TableStyle([
-	('SPAN',(0,0),(1,0)),
-	('SPAN',(0,1),(-1,1)),
-	('SPAN',(1,2),(-1,2)),
-	('VALIGN',(0,0),(-1,-1),'MIDDLE'),
-	('TOPPADDING',(0,0),(-1,0),10),
-	('TOPPADDING',(0,1),(-1,1),5),
-	('VALIGN',(0,2),(-1,2),'BOTTOM'),
-	('LEFTPADDING',(1,2),(1,2),-5),
+    ('SPAN',(0,0),(1,0)),
+    ('SPAN',(0,1),(-1,1)),
+    ('SPAN',(1,2),(-1,2)),
+    ('VALIGN',(0,0),(-1,-1),'MIDDLE'),
+    ('TOPPADDING',(0,0),(-1,0),10),
+    ('TOPPADDING',(0,1),(-1,1),5),
+    ('VALIGN',(0,2),(-1,2),'BOTTOM'),
+    ('LEFTPADDING',(1,2),(1,2),-5),
 ])
 
 page_style = TableStyle([
